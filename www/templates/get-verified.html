@@ -1,0 +1,52 @@
+<ion-view view-title="Get Verfied">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+  <ion-content class="padding">
+<!--    <h2>Why get Verified?</h2>-->
+    <br>
+    <p align="center">As a Verfified User, you will be able to add and edit events for your organization.</p>
+      
+    <p align="center">In order to become a Verified User, you must enter infomation about you and your organization as well as why you need to become verified. Once you do that, the CampusConnect Admins will look over your request and change your regular User account to a Verified User account. You will be notified when your request has been accepted.</p>
+    <br>
+    <button class="button button-block button-balanced" ng-click="verified_modal.show()" ng-if="!requestSent">
+    Get Verified Now!
+    </button>
+    
+    <button class="button button-block button-calm" ng-if="requestSent" disabled>
+    Verification Request Sent!
+    </button
+  </ion-content>
+</ion-view>
+
+<!-- New Event Modal -->
+  <script id="verified.html" type="text/ng-template">
+    
+    <div class="modal">
+      <header class="bar bar-header bar-positive">
+        <h1 class="title">Verified User Request</h1>
+        <button class="button button-clear button-primary" ng-click="verified_modal.hide()">Cancel</button>
+      </header>
+      <ion-content class="has-header">
+      <form name="frm" ng-submit="addRequest()">
+        
+      <div class="list">
+        
+        <label class="item item-input">
+          <input type="text" placeholder="Name" ng-model="user.fullName" required disabled>
+        </label>
+        <label class="item item-input">
+          <input type="text" ng-model="user.username" required disabled>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Your position/role in your organization" ng-model="input.position" required>
+        </label>
+        <label class="item item-input">
+          <textarea placeholder="Why do you need to be Verified?" ng-model="input.request" required></textarea>
+        </label>
+        <button class="button button-full button-positive" ng-disabled="frm.$invaild" ng-click="verified-modal.hide()">Submit</button>
+        </div>
+      </form>
+      </ion-content>
+    </div>
+</script>

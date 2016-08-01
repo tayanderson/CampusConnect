@@ -1,0 +1,43 @@
+<ion-view view-title="My Profile" class="profile" ng-init="initCtrl()">
+<!--<ion-view view-title="My Profile" class="profile">-->
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+  <ion-content>
+        <div class="profile-item padding">
+          <div class="profile-picture big-profile-picture">
+        <img ng-src="{{user.profilePicUrl}}" />
+
+<!--            <img src="{{user.icon}}">-->
+          </div>
+          
+          <label class="fileContainer button button-full">
+          <input id="fileInput" type="file" accept="*/*" ng-model="filename" />Choose File
+          </label>
+<!--          <label for="file">Choose a file</label>-->
+          
+<!--
+          <input type="button" value="x" class="delete-file" title="Delete file" ng-disabled="!imageUrl" ng-click="deleteFile()" />
+          
+-->
+<!--          <button class="button" ng-click="deleteFile()">Delete File</button>-->
+          
+          <h2 class="profile-name dark">{{user.firstName}} {{user.lastName}}</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a sapien eget enim gravida cursus id eu mauris. Sed ultrices metus et ex consectetur, vel eleifend sem tempus.</p>
+    </div>
+
+<!--
+  <form role="form" name="uploadForm">
+    <div class="row">
+        <img ng-src="{{imageUrl}}" ng-show="imageUrl" />
+        <input id="fileInput" type="file" accept="*/*" ng-model="filename" />
+        <input type="button" value="x" class="delete-file" title="Delete file" ng-disabled="!imageUrl" ng-click="deleteFile()" />
+
+    </div>
+  </form>
+-->
+
+    
+    
+    </ion-content>
+</ion-view>

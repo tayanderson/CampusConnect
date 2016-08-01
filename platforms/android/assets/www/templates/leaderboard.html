@@ -1,0 +1,10 @@
+<ion-view view-title="Leaderboard">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item" ng-repeat="user in users | orderBy:'-karmaPoints'" type="item-text-wrap" href="#/profile/{{user.id}}">
+        {{user.firstName}} {{user.lastName}}
+        <span class="item-note">{{user.karmaPoints}} Karma Points</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

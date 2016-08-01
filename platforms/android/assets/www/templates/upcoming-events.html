@@ -1,0 +1,16 @@
+<ion-view view-title="Upcoming Events">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+  <ion-content>
+    <ion-list>
+      <ion-item class="item item-thumbnail-left" ng-repeat="event in upcomingevents" type="item-text-wrap" href="#/event-detail/{{event.id}}">
+          <img ng-src="http://placehold.it/300x300">
+<!--          <img ng-src="{{event.img}">-->
+          <h2>{{event.name}}</h2>
+          <p><i class="ion-clock"></i> {{event.date}} | {{event.time}}</p>
+          <p><i class="ion-location"></i> {{event.location}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

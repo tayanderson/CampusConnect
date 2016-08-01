@@ -1,0 +1,59 @@
+<ion-view view-title="Feed" class="tab-feed">
+  <ion-nav-buttons side="right">
+    <button class="button icon ion-funnel" ng-click="modal2.show()">
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+  </ion-nav-buttons>  
+  
+  <ion-content>
+    <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="search" placeholder="Search" ng-model="search">
+  </label>
+    <ion-list>
+      <ion-item class="item" ng-repeat="event in filtered=(events.data | filter:filterByCategory) | orderBy:'date'" type="item-text-wrap" href="#/event-detail/{{event.id}}">
+<!--          <img ng-src="{{event.imgUrl}}" class="event-img">-->
+          <time class="icon {{event.date | date: 'EEEE'}}">
+          <span class="month">{{event.date | date: 'MMMM'}}</span>
+          <span class="day">{{event.date | date: 'd'}}</span>
+          <span class="week">{{event.date | date: 'EEEE'}}</span>
+          </time>
+          <h2>{{event.name}}</h2>
+          <p><i class="ion-clock"></i> {{event.date | date: 'MM/dd/yy'}} | {{event.date | date: 'shortTime'}}</p>
+          <p><i class="ion-location"></i> {{event.__metadata.descriptives.locationId.label}}</p>
+        
+        <!--delete button just for testing purposes-->
+        <ion-option-button class="button-assertive" ng-click="deleteEvent(event.id)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
+  <ion-footer-bar align-title="center" class="bar-positive" ng-if="isVerified">
+      <div class="title" ng-click="modal.show()">Add Event</div>
+  </ion-footer-bar>
+</ion-view>
+
+<!-- Filter Event Modal -->
+  <script id="filter-events.html" type="text/ng-template">
+    
+    <div class="modal">
+      <header class="bar bar-header bar-positive">
+        <h1 class="title">Filter Events</h1>
+        <button class="button button-clear button-primary" ng-click="modal2.hide()">Close</button>
+      </header>
+      <ion-content class="has-header">
+        <ion-list>
+          <label ng-repeat="tag in getTags2()">
+            <ion-checkbox ng-model="filter[tag]">{{tag}}</ion-checkbox>
+          </label>
+        </ion-list>
+      </ion-content>
+    </div>
+
+</script>
+
+  
